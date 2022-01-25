@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
+int main() {
+   
+    map<int,int> mp1;
+    map<int,int> mp2;
+    for(int i=0;i<4;i++)
+    {
+       int a,b,c;
+        cin>>a>>b>>c;
+        mp1[b]=a;
+        mp2[b]=c;
+    }
+    vector<int> vec;
+    int sum=0;
+    for(auto it: mp2)
+    {
+    if(sum==0)
+        vec.push_back(0);
+        else
+       vec.push_back(sum-it.first);
+       sum+=it.second;
+    }
+    map<int,int> mp3;
+    int i=0;
+    for(auto it: mp1)
+    {
+        mp3[it.second]=vec[i];
+        i++;
+    }
+    int x=0;
+    for(auto it: mp3)
+    {
+        cout<<"P"<<it.first<<" (WT="<<it.second<<")";
+            if(x<3)
+                cout<<", ";
+        x++;
+    }
+    return 0;
+}
